@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.fastconnect.fr/BWDev/Services/lab3" xmlns:ns0="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd2" xmlns:ns1="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://www.fastconnect.fr/BWDev/Services/lab3">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="q" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="root">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="weather">
+                            <xs:complexType>
+                                <xs:all>
+                                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="icon" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="id" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="main" type="xs:string" minOccurs="0"/>
+                                </xs:all>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="intfLab3-service">
+        <wsdl:port name="intfwsLab3Endpoint1" binding="tns:intfwsLab3Endpoint1Binding">
+            <soap:address location="http://localhost:7575/Interface/intfLab3-service.serviceagent/intfwsLab3Endpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="portType">
+        <wsdl:operation name="Lab3Op">
+            <wsdl:input message="tns:q"/>
+            <wsdl:output message="tns:root"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="intfwsLab3Endpoint1Binding" type="tns:portType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Lab3Op">
+            <soap:operation style="document" soapAction="/Interface/intfLab3-service.serviceagent/intfwsLab3Endpoint1/Lab3Op"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="q">
+        <wsdl:part name="parameters" element="ns0:q"/>
+    </wsdl:message>
+    <wsdl:message name="root">
+        <wsdl:part name="parameters" element="ns1:root"/>
+    </wsdl:message>
+</wsdl:definitions>

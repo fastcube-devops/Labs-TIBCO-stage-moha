@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
+	<globalVariables>
+		<globalVariable>
+			<name>DirTrace</name>
+			<value>.</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1366798296904</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>FichierSource</name>
+			<value>test_projet_21122000_1.csv</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1619623529137</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>FolderSource</name>
+			<value>C:\FCBWDEV\Source\</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1619623529318</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>FolderTarget</name>
+			<value>C:\FCBWDEV\Cible\</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1619623529194</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>ForlderError</name>
+			<value>C:\FCBWDEV\Error\</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1619623529351</modTime>
+		</globalVariable>
+	</globalVariables>
+</repository>

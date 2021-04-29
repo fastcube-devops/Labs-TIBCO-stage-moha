@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="CLIENTS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ID_CLIENT"/>
+				<xs:element ref="NOM_CLIENT"/>
+				<xs:element ref="PRENOM"/>
+				<xs:element ref="ADRESSE"/>
+				<xs:element ref="PROFESSION"/>
+				<xs:element ref="DATE_AJOUT"/>
+				<xs:element ref="DATE_UPDATE"/>
+				<xs:element ref="FLAG"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ID_CLIENT" type="xs:string"/>
+	<xs:element name="NOM_CLIENT" type="xs:string"/>
+	<xs:element name="PRENOM" type="xs:string"/>
+	<xs:element name="ADRESSE" type="xs:string"/>
+	<xs:element name="PROFESSION" type="xs:string"/>
+	<xs:element name="DATE_AJOUT" type="xs:string"/>
+	<xs:element name="DATE_UPDATE" type="xs:string"/>
+	<xs:element name="FLAG" type="xs:string"/>
+</xs:schema>

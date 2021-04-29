@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Lab2/schema/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Lab2/schema/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="log_info">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="idFonc"/>
+				<xs:element ref="idTech"/>
+				<xs:element ref="status"/>
+				<xs:element ref="logMessage"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="idTech" type="xs:string"/>
+	<xs:element name="idFonc" type="xs:string"/>
+	<xs:element name="status" type="xs:string"/>
+	<xs:element name="logMessage" type="xs:string"/>
+</xs:schema>

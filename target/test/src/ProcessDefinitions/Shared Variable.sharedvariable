@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource xmlns:pfx="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" xmlns:pfx2="http://www.tibco.com/schemas/lab4/Schema/Schema.xsd" xmlns:pfx3="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd3">
+    <import namespace="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" schemaLocation="/schema/WeatherApiRest.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/lab4/Schema/Schema.xsd" schemaLocation="/schema/shared_Variable.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd3" schemaLocation="/schema/Schema1.xsd"/>
+    <name>Shared Variable</name>
+    <resourceType>ae.shared.sharedVariable</resourceType>
+    <config xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <persistent>true</persistent>
+        <multi-engine>false</multi-engine>
+        <initialValue>none</initialValue>
+        <initialValueRef>/var.xml</initialValueRef>
+        <xsdString ref="pfx3:list"/>
+    </config>
+</BWSharedResource>

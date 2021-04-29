@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.fastconnect.fr/BWDev/Services/lab3" xmlns:pfx3="http://www.tibco.com/schemas/Lab2/JSON_GEN_Schemas/Schema.xsd" xmlns:pfx4="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.tibco.com/schemas/Lab2/JSON_GEN_Schemas/Schema.xsd" schemaLocation="/JSON_GEN_Schemas/weather.xsd"/>
+    <xsd:import namespace="http://www.tibco.com/schemas/lab3/Schema/Schema1.xsd4" schemaLocation="/schema/WeatherApiRest.xsd"/>
+    <xsd:import namespace="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd2" schemaLocation="/schema/q.xsd"/>
+    <wsdl:import namespace="http://www.fastconnect.fr/BWDev/Services/lab3"/>
+    <wsdl:import namespace="http://www.fastconnect.fr/BWDev/Services/lab3" location="/services/lab3_WSDLconcret.wsdl"/>
+    <pd:name>ProcessDefinitions/web service.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="pfx:q"/>
+    <pd:startX>102</pd:startX>
+    <pd:startY>88</pd:startY>
+    <pd:returnBindings>
+        <xsl:for-each select="$appel-lab3/outputMessage/pfx4:root">
+            <pfx4:root>
+                <xsl:for-each select="pfx4:weather">
+                    <pfx4:weather>
+                        <xsl:if test="pfx4:id">
+                            <pfx4:id>
+                                <xsl:value-of select="pfx4:id"/>
+                            </pfx4:id>
+                        </xsl:if>
+                        <xsl:if test="pfx4:main">
+                            <pfx4:main>
+                                <xsl:value-of select="pfx4:main"/>
+                            </pfx4:main>
+                        </xsl:if>
+                        <xsl:if test="pfx4:description">
+                            <pfx4:description>
+                                <xsl:value-of select="pfx4:description"/>
+                            </pfx4:description>
+                        </xsl:if>
+                        <xsl:if test="pfx4:icon">
+                            <pfx4:icon>
+                                <xsl:value-of select="pfx4:icon"/>
+                            </pfx4:icon>
+                        </xsl:if>
+                    </pfx4:weather>
+                </xsl:for-each>
+            </pfx4:root>
+        </xsl:for-each>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType ref="pfx4:root"/>
+    <pd:endX>509</pd:endX>
+    <pd:endY>86</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1618908932500</pd:targetNamespace>
+    <pd:activity name="appel lab3">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReceiveActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReceiveUI</pd:resourceType>
+        <pd:x>291</pd:x>
+        <pd:y>79</pd:y>
+        <config>
+            <timeout>0</timeout>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+            <timeoutType>Seconds</timeoutType>
+            <service>pfx2:intfLab3-service</service>
+            <servicePort>intfwsLab3Endpoint1</servicePort>
+            <operation>Lab3Op</operation>
+            <soapAction>/Interface/intfLab3-service.serviceagent/intfwsLab3Endpoint1/Lab3Op</soapAction>
+            <endpointURL>http://localhost:7575/Interface/intfLab3-service.serviceagent/intfwsLab3Endpoint1</endpointURL>
+            <authScheme>NONE</authScheme>
+        </config>
+        <pd:inputBindings>
+            <inputMessage>
+                <pfx:q>
+                    <xsl:value-of select="$Start/pfx:q"/>
+                </pfx:q>
+            </inputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>appel lab3</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>appel lab3</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd3"
+	 targetNamespace="http://www.tibco.com/schemas/Lab2/schema/Schema1.xsd3"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="infos" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="infos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adress"/>
+				<xs:element ref="lat"/>
+				<xs:element ref="long"/>
+				<xs:element ref="weather"/>
+				<xs:element ref="time"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="weather" type="xs:string"/>
+	<xs:element name="lat" type="xs:string"/>
+	<xs:element name="long" type="xs:string"/>
+	<xs:element name="adress" type="xs:string"/>
+	<xs:element name="time" type="xs:string"/>
+</xs:schema>
